@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+  <style>
+    table{
+      width:500px;
+      margin: 100px auto;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    td, th{
+      border:1px solid #333;
+    }
+    thead tr{
+      height: 40px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<table cellspacing="0">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Score</th>
+    <th>Operating</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+<script>
+  var datas = [{
+    name:'Andy',
+    subject: 'JavaScript',
+    score: 100
+  },{
+    name: 'Shelley',
+    subject: 'JavaScript',
+    score: 98
+  },
+    {
+      name: 'Alex',
+      subject: 'JavaScript',
+      score: 99
+    },{
+      name: 'Dorry',
+      subject: 'JavaScript',
+      score: 88
+    },
+    {
+      name: 'Snow',
+      subject: 'JavaScript',
+      score: 100
+    }];
+  var tbody = document.querySelector('tbody');
+  for(let i = 0; i < datas.length; i++){
+    var tr = document.createElement('tr');
+    tbody.appendChild(tr);
+    for(let k in datas[i]){
+      var td = document.createElement('td');
+      td.innerHTML = datas[i][k];
+      tr.appendChild(td);
+    }
+    var td = document.createElement('td');
+    td.innerHTML = "<a href='javascript:;'>Delete</a>";
+    tr.appendChild(td);
+  }
+  var as = document.querySelectorAll('a');
+  for(let i = 0; i < as.length; i++){
+    as[i].onclick = function (){
+      tbody.removeChild(this.parentNode.parentNode);
+    }
+  }
+</script>
+</body>
+</html>
